@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -12,12 +13,16 @@ export function Footer() {
           <div>
             <a
               href="#home"
-              className="inline-flex items-center gap-2 transition-opacity hover:opacity-90"
+              aria-label="K Bakery home"
+              className="inline-flex items-center transition-opacity hover:opacity-90"
             >
-              <Icon name="bread" className="h-7 w-7 text-yellow" />
-              <span className="font-serif text-2xl font-bold text-cream">
-                K Bakery
-              </span>
+              <Image
+                src="/logo.png"
+                alt="K Bakery"
+                width={150}
+                height={50}
+                className="h-10 w-auto"
+              />
             </a>
             <p className="mt-4 text-sm leading-relaxed text-cream/70">
               The largest food chain in Chattogram, baked fresh every single

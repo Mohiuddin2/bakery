@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -62,12 +63,17 @@ export function Navbar() {
         <div className="flex items-center justify-between py-4">
           <a
             href="#home"
-            className="group flex items-center gap-2.5 font-serif text-2xl font-bold tracking-wide text-cream"
+            aria-label="K Bakery home"
+            className="group flex items-center"
           >
-            <Icon name="bread" className="h-7 w-7 text-yellow transition-transform duration-300 group-hover:scale-110" />
-            <span>
-              K Bakery<span className="text-yellow">.</span>
-            </span>
+            <Image
+              src="/logo.png"
+              alt="K Bakery"
+              width={150}
+              height={50}
+              priority
+              className="h-9 w-auto transition-transform duration-300 group-hover:scale-105 sm:h-10"
+            />
           </a>
 
           <nav className="hidden items-center gap-8 lg:flex">
