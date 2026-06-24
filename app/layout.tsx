@@ -1,47 +1,41 @@
 import type { Metadata } from "next";
-import {
-  Playfair_Display,
-  Manrope,
-  Great_Vibes,
-} from "next/font/google";
+import { Fraunces, Nunito, Caveat } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });
 
-const manrope = Manrope({
+const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-body",
   display: "swap",
 });
 
-const greatVibes = Great_Vibes({
+const caveat = Caveat({
   subsets: ["latin"],
-  weight: ["400"],
   variable: "--font-script",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Saffron — Modern Mediterranean Dining",
+  title: "K Bakery — Freshly Baked, Every Day | Chattogram",
   description:
-    "Saffron is a contemporary Mediterranean restaurant serving seasonal, ingredient-led plates in the heart of the city. Book a table and taste the difference.",
+    "K Bakery is the largest food chain in Chattogram — cakes, pastries, cookies, sweets, snacks and more, baked fresh every single day across 30+ outlets.",
   keywords: [
-    "restaurant",
-    "fine dining",
-    "Mediterranean",
-    "book a table",
-    "Saffron",
+    "K Bakery",
+    "bakery Chattogram",
+    "cake shop",
+    "pastry",
+    "custom cakes",
+    "fresh bread",
   ],
   openGraph: {
-    title: "Saffron — Modern Mediterranean Dining",
+    title: "K Bakery — Freshly Baked, Every Day",
     description:
-      "Seasonal, ingredient-led plates in the heart of the city. Book a table at Saffron.",
+      "Cakes, pastries, cookies, sweets and snacks baked fresh daily across Chattogram. Order from K Bakery.",
     type: "website",
   },
 };
@@ -54,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${manrope.variable} ${greatVibes.variable}`}
+      className={`${fraunces.variable} ${nunito.variable} ${caveat.variable}`}
     >
       <body>{children}</body>
     </html>

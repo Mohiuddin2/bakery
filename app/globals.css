@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --font-display: "Playfair Display", Georgia, serif;
-  --font-body: "Manrope", system-ui, sans-serif;
-  --font-script: "Great Vibes", cursive;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+  --font-script: "Caveat", cursive;
 }
 
 @layer base {
@@ -30,7 +30,7 @@
   }
 
   ::selection {
-    @apply bg-gold/30 text-ink;
+    @apply bg-yellow/40 text-ink;
   }
 }
 
@@ -57,29 +57,19 @@
       transition: none;
     }
   }
-
-  /* Decorative divider flanked by little leaves */
-  .divider-line {
-    @apply relative flex items-center justify-center gap-3 text-gold;
-  }
-  .divider-line::before,
-  .divider-line::after {
-    content: "";
-    @apply h-px w-12 bg-gold/50;
-  }
 }
 
-/* Custom scrollbar for a refined feel */
+/* Custom scrollbar — warm bakery tones */
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1e9db;
+  background: #f6e8ce;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c8a24c;
+  background: #f6b42c;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a7842f;
+  background: #e0991a;
 }

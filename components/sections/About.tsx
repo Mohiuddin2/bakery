@@ -12,21 +12,14 @@ export function About() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <div className="relative">
-              <div className="relative block aspect-[4/5] overflow-hidden rounded-2xl shadow-card">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-card">
                 <Image
                   fill
                   className="object-cover"
                   sizes="(min-width:1024px) 40vw, 90vw"
-                  alt="Plated Mediterranean dishes"
-                  src={img("1414235077428-338989a2e8c0", 900)}
+                  alt="Inside a K Bakery outlet"
+                  src={img("1517433670267-08bbd4be890f", 900)}
                 />
-              </div>
-
-              <div className="absolute left-6 top-6 rounded-xl bg-gold px-5 py-3 text-ink shadow-gold">
-                <div className="font-serif text-3xl leading-none">18+</div>
-                <div className="mt-1 text-[0.625rem] uppercase tracking-wide">
-                  Years of Craft
-                </div>
               </div>
 
               <div className="absolute -bottom-8 -right-8 hidden h-56 w-44 overflow-hidden rounded-2xl shadow-card ring-8 ring-cream sm:block">
@@ -34,9 +27,16 @@ export function About() {
                   fill
                   className="object-cover"
                   sizes="200px"
-                  alt="Fresh herbs in our kitchen"
-                  src={img("1466637574441-749b8f19452f", 500)}
+                  alt="Our baker shaping fresh dough"
+                  src={img("1556910103-1c02745aae4d", 500)}
                 />
+              </div>
+
+              <div className="absolute left-6 top-6 rounded-2xl bg-yellow px-5 py-3 text-ink shadow-warm">
+                <span className="block font-serif text-3xl font-bold leading-none">35+</span>
+                <span className="mt-1 block text-[0.7rem] font-semibold uppercase tracking-wide">
+                  Years of Baking
+                </span>
               </div>
             </div>
           </Reveal>
@@ -46,37 +46,37 @@ export function About() {
               <SectionHeading
                 align="left"
                 eyebrow="Our Story"
-                title="Where Tradition Meets the Modern Table"
-                subtitle="Born from a love of sun-drenched coastlines and the slow rituals of the table, Saffron brings the soul of the Mediterranean to every plate."
+                title="Baked Fresh in Chattogram Since 1989"
+                subtitle="What began as a small neighbourhood oven is now the warm, sweet heart of the city — and we still rise before the sun for every loaf."
               />
 
               <p className="leading-relaxed text-muted">
-                We source heirloom produce, day-boat seafood, and small-batch
-                olive oils, then let each ingredient speak for itself. Our
-                kitchen honors recipes passed down through generations while
-                embracing the artistry of the modern table — a place where
-                hospitality is the finest seasoning of all.
+                K Bakery started as a humble family kitchen and grew into the
+                largest food chain in Chattogram, one happy customer at a time.
+                Across every outlet we keep the same promise we made on day one:
+                everything baked fresh every single morning, made with real
+                butter, honest ingredients, and a whole lot of love.
               </p>
 
               <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
                 {aboutStats.map((stat) => (
-                  <Reveal key={stat.label}>
-                    <div>
-                      <div className="font-serif text-3xl text-gold">
-                        {stat.value}
-                      </div>
-                      <div className="mt-1 text-xs uppercase tracking-wide text-muted">
-                        {stat.label}
-                      </div>
+                  <div key={stat.label}>
+                    <div className="font-serif text-3xl font-bold text-yellow-dark">
+                      {stat.value}
                     </div>
-                  </Reveal>
+                    <div className="mt-1 text-xs uppercase tracking-wide text-muted">
+                      {stat.label}
+                    </div>
+                  </div>
                 ))}
               </div>
 
               <div className="mt-10 flex flex-wrap items-center gap-6">
-                <Button href="#menu">Discover Our Menu</Button>
-                <span className="font-script text-2xl text-gold">
-                  — Marco Alvarez, Executive Chef
+                <Button href="#menu" size="lg">
+                  Explore Our Range
+                </Button>
+                <span className="font-script text-2xl text-green">
+                  — The K Bakery Family
                 </span>
               </div>
             </div>

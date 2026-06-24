@@ -1,16 +1,22 @@
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "outline" | "light";
+type Variant = "primary" | "secondary" | "outline" | "light";
 type Size = "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-transparent disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
+  // Golden honey CTA — the primary action everywhere
   primary:
-    "bg-gold text-ink hover:bg-gold-dark hover:shadow-gold hover:-translate-y-0.5",
+    "bg-yellow text-ink hover:bg-yellow-dark hover:shadow-warm hover:-translate-y-0.5",
+  // Fresh green — alternate action on light backgrounds
+  secondary:
+    "bg-green text-cream hover:bg-green-dark hover:shadow-green hover:-translate-y-0.5",
+  // For DARK backgrounds: cream border that fills on hover
   outline:
-    "border border-gold/70 text-gold hover:bg-gold hover:text-ink hover:-translate-y-0.5",
+    "border-2 border-cream/80 text-cream hover:bg-cream hover:text-ink hover:-translate-y-0.5",
+  // Solid cream — for DARK backgrounds
   light:
     "bg-cream text-ink hover:bg-white hover:-translate-y-0.5 hover:shadow-card",
 };

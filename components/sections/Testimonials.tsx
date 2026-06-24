@@ -25,9 +25,9 @@ export function Testimonials() {
     <section className="bg-sand py-20 md:py-28">
       <Container>
         <SectionHeading
-          eyebrow="Kind Words"
-          title="What Our Guests Say"
-          subtitle="The warmth of our hospitality lingers long after the last bite — here is what those who have dined with us remember most."
+          eyebrow="Loved by Chattogram"
+          title="What Our Customers Say"
+          subtitle="From birthday cakes to everyday loaves, here is what our delighted regulars love most about K Bakery."
         />
 
         <div className="mt-14 max-w-3xl mx-auto">
@@ -38,17 +38,17 @@ export function Testimonials() {
             >
               {testimonials.map((t) => (
                 <div key={t.name} className="w-full shrink-0 px-2">
-                  <div className="rounded-2xl bg-cream p-8 md:p-10 text-center shadow-card">
-                    <Icon name="quote" className="mx-auto h-10 w-10 text-gold" />
+                  <div className="rounded-3xl bg-cream p-8 md:p-10 text-center shadow-card">
+                    <Icon name="quote" className="mx-auto h-10 w-10 text-yellow" />
                     <p className="mt-6 font-serif text-xl md:text-2xl italic leading-relaxed text-ink">
                       {t.quote}
                     </p>
                     <div className="mt-6 flex items-center justify-center gap-1">
                       {Array.from({ length: t.rating }).map((_, s) => (
-                        <Icon key={s} name="star" className="h-4 w-4 text-gold" />
+                        <Icon key={s} name="star" className="h-4 w-4 text-yellow" />
                       ))}
                     </div>
-                    <div className="mt-6 flex flex-col items-center gap-2">
+                    <div className="mt-6 flex flex-col items-center gap-3">
                       <div className="relative h-14 w-14 rounded-full overflow-hidden">
                         <Image
                           fill
@@ -74,7 +74,7 @@ export function Testimonials() {
               type="button"
               onClick={prev}
               aria-label="Previous testimonial"
-              className="border border-gold text-gold rounded-full p-3 hover:bg-gold hover:text-ink transition"
+              className="border border-yellow text-yellow rounded-full p-3 hover:bg-yellow hover:text-ink transition"
             >
               <Icon name="arrow-right" className="h-5 w-5 rotate-180" />
             </button>
@@ -87,7 +87,7 @@ export function Testimonials() {
                   onClick={() => setIndex(i)}
                   aria-label={`Go to testimonial ${i + 1}`}
                   className={`h-2 rounded-full transition-all ${
-                    i === index ? "w-6 bg-gold" : "w-2 bg-muted/40"
+                    i === index ? "w-6 bg-yellow" : "w-2 bg-muted/40"
                   }`}
                 />
               ))}
@@ -97,7 +97,7 @@ export function Testimonials() {
               type="button"
               onClick={next}
               aria-label="Next testimonial"
-              className="border border-gold text-gold rounded-full p-3 hover:bg-gold hover:text-ink transition"
+              className="border border-yellow text-yellow rounded-full p-3 hover:bg-yellow hover:text-ink transition"
             >
               <Icon name="arrow-right" className="h-5 w-5" />
             </button>

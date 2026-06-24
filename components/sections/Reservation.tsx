@@ -6,35 +6,10 @@ import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
-import { site } from "@/lib/data";
-
-const timeOptions = [
-  "5:00 PM",
-  "5:30 PM",
-  "6:00 PM",
-  "6:30 PM",
-  "7:00 PM",
-  "7:30 PM",
-  "8:00 PM",
-  "8:30 PM",
-  "9:00 PM",
-  "9:30 PM",
-  "10:00 PM",
-];
-
-const guestOptions = [
-  "1 person",
-  "2 people",
-  "3 people",
-  "4 people",
-  "5 people",
-  "6 people",
-  "7 people",
-  "8+ people",
-];
+import { site, productCategoryNames } from "@/lib/data";
 
 const inputClass =
-  "w-full rounded-lg bg-ink/40 border border-cream/15 px-4 py-3 text-sm text-cream placeholder:text-cream/40 focus:border-gold focus:outline-none transition";
+  "w-full rounded-xl bg-ink/40 border border-cream/15 px-4 py-3 text-sm text-cream placeholder:text-cream/40 focus:border-yellow focus:outline-none transition";
 
 const labelClass =
   "text-xs uppercase tracking-wide text-cream/60 mb-1.5 block";
@@ -50,7 +25,7 @@ export function Reservation() {
   return (
     <section
       id="contact"
-      className="bg-charcoal py-20 md:py-28 scroll-mt-24 text-cream"
+      className="bg-brown-dark py-20 md:py-28 scroll-mt-24 text-cream"
     >
       <Container>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -59,14 +34,14 @@ export function Reservation() {
               <SectionHeading
                 align="left"
                 invert
-                eyebrow="Reservations"
-                title="Book Your Table"
-                subtitle="Reserve your evening with us and let our team prepare an unforgettable Mediterranean experience tailored to your occasion."
+                eyebrow="Drop By or Order Ahead"
+                title="Visit Us & Place an Order"
+                subtitle="Pop into your nearest K Bakery for something warm from the oven, or send us your order and we'll have it freshly baked and ready when you arrive."
               />
 
               <ul className="mt-8 space-y-5">
                 <li className="flex items-start gap-4">
-                  <span className="grid h-11 w-11 place-items-center rounded-full bg-ink text-gold shrink-0">
+                  <span className="grid h-11 w-11 place-items-center rounded-full bg-ink text-yellow shrink-0">
                     <Icon name="phone" className="h-5 w-5" />
                   </span>
                   <div>
@@ -75,7 +50,7 @@ export function Reservation() {
                     </span>
                     <a
                       href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}
-                      className="block text-cream hover:text-gold transition"
+                      className="block text-cream hover:text-yellow transition"
                     >
                       {site.phone}
                     </a>
@@ -83,7 +58,7 @@ export function Reservation() {
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <span className="grid h-11 w-11 place-items-center rounded-full bg-ink text-gold shrink-0">
+                  <span className="grid h-11 w-11 place-items-center rounded-full bg-ink text-yellow shrink-0">
                     <Icon name="mail" className="h-5 w-5" />
                   </span>
                   <div>
@@ -92,7 +67,7 @@ export function Reservation() {
                     </span>
                     <a
                       href={`mailto:${site.email}`}
-                      className="block text-cream hover:text-gold transition"
+                      className="block text-cream hover:text-yellow transition"
                     >
                       {site.email}
                     </a>
@@ -100,7 +75,7 @@ export function Reservation() {
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <span className="grid h-11 w-11 place-items-center rounded-full bg-ink text-gold shrink-0">
+                  <span className="grid h-11 w-11 place-items-center rounded-full bg-ink text-yellow shrink-0">
                     <Icon name="pin" className="h-5 w-5" />
                   </span>
                   <div>
@@ -112,7 +87,7 @@ export function Reservation() {
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <span className="grid h-11 w-11 place-items-center rounded-full bg-ink text-gold shrink-0">
+                  <span className="grid h-11 w-11 place-items-center rounded-full bg-ink text-yellow shrink-0">
                     <Icon name="clock" className="h-5 w-5" />
                   </span>
                   <div>
@@ -135,19 +110,19 @@ export function Reservation() {
           <Reveal delay={100}>
             <form
               onSubmit={onSubmit}
-              className="rounded-2xl bg-ink/60 border border-cream/10 p-6 md:p-8 shadow-card"
+              className="rounded-3xl bg-ink/60 border border-cream/10 p-6 md:p-8 shadow-card"
             >
               {submitted ? (
                 <div className="flex flex-col items-center text-center py-10">
-                  <span className="grid h-16 w-16 place-items-center rounded-full bg-gold/15 text-gold ring-1 ring-gold/40">
+                  <span className="grid h-16 w-16 place-items-center rounded-full bg-yellow/15 text-yellow ring-1 ring-yellow/40">
                     <Icon name="check" className="h-8 w-8" />
                   </span>
                   <h3 className="mt-6 font-serif text-2xl text-cream">
                     Thank you!
                   </h3>
                   <p className="mt-3 max-w-sm text-sm text-cream/70">
-                    Your table request has been received — we&apos;ll confirm by
-                    phone shortly.
+                    Your order request has been received — our team will call you
+                    shortly to confirm.
                   </p>
                   <div className="mt-8">
                     <Button
@@ -155,7 +130,7 @@ export function Reservation() {
                       type="button"
                       onClick={() => setSubmitted(false)}
                     >
-                      Book Another Table
+                      Place Another Order
                     </Button>
                   </div>
                 </div>
@@ -184,7 +159,7 @@ export function Reservation() {
                       name="phone"
                       type="tel"
                       required
-                      placeholder="(555) 000-0000"
+                      placeholder="01XXX-XXXXXX"
                       className={inputClass}
                     />
                   </div>
@@ -197,15 +172,36 @@ export function Reservation() {
                       id="res-email"
                       name="email"
                       type="email"
-                      required
                       placeholder="you@example.com"
                       className={inputClass}
                     />
                   </div>
 
                   <div>
+                    <label htmlFor="res-category" className={labelClass}>
+                      Product Category
+                    </label>
+                    <select
+                      id="res-category"
+                      name="category"
+                      required
+                      defaultValue=""
+                      className={inputClass}
+                    >
+                      <option value="" disabled>
+                        Choose a category
+                      </option>
+                      {productCategoryNames.map((cat) => (
+                        <option key={cat} value={cat}>
+                          {cat}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
                     <label htmlFor="res-date" className={labelClass}>
-                      Date
+                      Pickup Date
                     </label>
                     <input
                       id="res-date"
@@ -216,48 +212,17 @@ export function Reservation() {
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="res-time" className={labelClass}>
-                      Time
-                    </label>
-                    <select
-                      id="res-time"
-                      name="time"
-                      required
-                      defaultValue=""
-                      className={inputClass}
-                    >
-                      <option value="" disabled>
-                        Select a time
-                      </option>
-                      {timeOptions.map((t) => (
-                        <option key={t} value={t}>
-                          {t}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
                   <div className="sm:col-span-2">
-                    <label htmlFor="res-guests" className={labelClass}>
-                      Guests
+                    <label htmlFor="res-details" className={labelClass}>
+                      Quantity / Details
                     </label>
-                    <select
-                      id="res-guests"
-                      name="guests"
-                      required
-                      defaultValue=""
+                    <textarea
+                      id="res-details"
+                      name="details"
+                      rows={3}
+                      placeholder="e.g. 1 chocolate cake (2 lb), 12 patties..."
                       className={inputClass}
-                    >
-                      <option value="" disabled>
-                        Number of guests
-                      </option>
-                      {guestOptions.map((g) => (
-                        <option key={g} value={g}>
-                          {g}
-                        </option>
-                      ))}
-                    </select>
+                    />
                   </div>
 
                   <Button
@@ -265,7 +230,7 @@ export function Reservation() {
                     size="lg"
                     className="w-full sm:col-span-2"
                   >
-                    Reserve Now
+                    Request Order
                   </Button>
                 </div>
               )}

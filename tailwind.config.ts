@@ -9,15 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#16130F",
-        charcoal: "#1E1A15",
-        cream: "#FAF6EF",
-        sand: "#F1E9DB",
-        muted: "#7A7065",
-        gold: {
-          light: "#E0C684",
-          DEFAULT: "#C8A24C",
-          dark: "#A7842F",
+        // Warm bakery neutrals
+        ink: "#2A1B12", // deep espresso brown — primary text / darkest
+        charcoal: "#3A2618", // alt dark brown
+        cream: "#FFF9EF", // warm dough white — page background
+        sand: "#F6E8CE", // wheat — subtle fills & borders
+        muted: "#8A7763", // warm taupe — secondary text
+        // Brand: yellow / brown / green
+        yellow: {
+          light: "#FCD968",
+          DEFAULT: "#F6B42C",
+          dark: "#E0991A",
+        },
+        brown: {
+          light: "#9C6B3F",
+          DEFAULT: "#6B4226",
+          dark: "#43281A",
+        },
+        green: {
+          light: "#9ECB5A",
+          DEFAULT: "#7FB439",
+          dark: "#5E8A26",
         },
       },
       fontFamily: {
@@ -29,8 +41,9 @@ const config: Config = {
         container: "1200px",
       },
       boxShadow: {
-        card: "0 20px 45px -20px rgba(22, 19, 15, 0.25)",
-        gold: "0 18px 40px -18px rgba(200, 162, 76, 0.6)",
+        card: "0 22px 50px -24px rgba(67, 40, 26, 0.35)",
+        warm: "0 18px 40px -18px rgba(246, 180, 44, 0.55)",
+        green: "0 18px 40px -18px rgba(127, 180, 57, 0.45)",
       },
       keyframes: {
         "fade-up": {
@@ -44,10 +57,6 @@ const config: Config = {
       },
       animation: {
         "spin-slow": "spin-slow 18s linear infinite",
-      },
-      backgroundImage: {
-        "grain":
-          "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)",
       },
     },
   },

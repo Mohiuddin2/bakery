@@ -1,53 +1,48 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Reveal } from "@/components/ui/Reveal";
 import { Icon } from "@/components/ui/Icon";
-import { featuredDishes } from "@/lib/data";
+import { Reveal } from "@/components/ui/Reveal";
+import { productCategories } from "@/lib/data";
 
 export function Featured() {
   return (
     <section className="bg-sand py-20 md:py-28">
       <Container>
         <SectionHeading
-          eyebrow="Chef's Selection"
-          title="Our Signature Dishes"
-          subtitle="A handpicked trio of our most beloved plates — crafted with seasonal ingredients and a touch of Mediterranean soul."
+          eyebrow="What We Bake"
+          title="Explore Our Range"
+          subtitle="From pillowy cakes to crisp cookies and golden fast food — discover every category baked fresh daily across our family kitchens."
         />
-        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
-          {featuredDishes.map((d, i) => (
-            <Reveal key={d.name} delay={i * 100}>
-              <article className="group overflow-hidden rounded-2xl bg-cream shadow-card transition-all duration-500 hover:-translate-y-2">
-                <div className="relative h-60 overflow-hidden">
+        <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {productCategories.map((c, i) => (
+            <Reveal key={c.name} as="article" delay={i * 80}>
+              <article className="group relative overflow-hidden rounded-3xl bg-cream shadow-card transition-all duration-500 hover:-translate-y-2">
+                <div className="relative h-56 overflow-hidden">
                   <Image
-                    src={d.image}
-                    alt={d.name}
                     fill
-                    sizes="(min-width:768px) 33vw, 90vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 90vw"
+                    alt={c.name}
+                    src={c.image}
                   />
-                  <span className="absolute right-4 top-4 rounded-full bg-gold px-3 py-1 text-sm font-semibold text-ink">
-                    {d.price}
+                  <span className="absolute left-4 top-4 rounded-full bg-green px-3 py-1 text-xs font-semibold text-cream">
+                    {c.items}
                   </span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl text-ink transition-colors group-hover:text-gold">
-                    {d.name}
+                  <h3 className="text-xl text-ink transition-colors group-hover:text-yellow-dark">
+                    {c.name}
                   </h3>
-                  <div className="mt-3 flex items-center gap-1 text-gold">
-                    {Array.from({ length: 5 }).map((_, s) => (
-                      <Icon key={s} name="star" className="h-4 w-4" />
-                    ))}
-                  </div>
-                  <p className="mt-4 text-sm text-muted">{d.description}</p>
+                  <p className="mt-2 text-sm text-muted">{c.description}</p>
                   <a
-                    href="#contact"
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gold transition-colors hover:text-gold-dark"
+                    href="#menu"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-green"
                   >
-                    Order Now
+                    View products
                     <Icon
                       name="arrow-right"
-                      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
                     />
                   </a>
                 </div>

@@ -25,10 +25,17 @@ export function SectionHeading({
         className,
       )}
     >
-      <p className="font-script text-2xl text-gold sm:text-3xl">{eyebrow}</p>
+      <p
+        className={cn(
+          "font-script text-3xl sm:text-4xl",
+          invert ? "text-green-light" : "text-green",
+        )}
+      >
+        {eyebrow}
+      </p>
       <h2
         className={cn(
-          "mt-2 text-3xl font-semibold leading-tight sm:text-4xl md:text-[2.75rem]",
+          "mt-1 text-3xl font-semibold leading-tight sm:text-4xl md:text-[2.75rem]",
           invert ? "text-cream" : "text-ink",
         )}
       >
@@ -40,9 +47,9 @@ export function SectionHeading({
           align === "center" ? "justify-center" : "justify-start",
         )}
       >
-        <span className="h-px w-8 bg-gold/50" />
-        <span className="h-2 w-2 rotate-45 bg-gold" />
-        <span className="h-px w-8 bg-gold/50" />
+        <span className="h-px w-8 bg-yellow/60" />
+        <span className="h-2 w-2 rotate-45 bg-yellow" />
+        <span className="h-px w-8 bg-yellow/60" />
       </div>
       {subtitle && (
         <p

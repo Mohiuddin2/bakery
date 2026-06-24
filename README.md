@@ -1,31 +1,31 @@
-# Saffron — Restaurant Website
+# K Bakery — Website
 
-A polished, fully responsive restaurant landing page built with **Next.js 15 (App Router)**, **TypeScript**, and **Tailwind CSS**. Original design and content in the style of a premium food/restaurant template — warm charcoal + cream + gold palette, Playfair Display headings, scroll-reveal animations, and a complete set of marketing sections.
+A warm, fully responsive website for **K Bakery**, the largest food chain in Chattogram. Built with **Next.js 15 (App Router) + TypeScript + Tailwind CSS**. Fresh, appetizing, category-forward design with a yellow / brown / green palette, Fraunces + Nunito + Caveat fonts, and scroll-reveal animations.
 
-> All photography is from [Unsplash](https://unsplash.com) (free to use); branding, copy, and code are original.
+> All photography is from [Unsplash](https://unsplash.com) (free to use); code and copy are original.
 
 ## Sections
 
-- Fixed navbar (transparent over hero → solid on scroll, mobile menu)
+- Fixed navbar (transparent over hero → warm-brown on scroll, mobile menu)
 - Full-screen hero
-- Feature highlights (overlapping card)
-- About / story with image collage + stats
-- Signature dishes showcase
-- Menu with category tabs
-- Reserve CTA banner
-- Chefs / team
-- Photo gallery
-- Testimonials carousel (auto-advancing)
-- Reservation + contact with booking form
-- Journal / blog preview
+- Feature highlights (baked fresh daily, premium ingredients, 30+ outlets, made with love)
+- About / our story with image collage + stats
+- Explore Our Range — six product categories
+- Our Products — tabbed by category (Cake & Pastry, Cookies & Muffin, Sweets, Fast Food, Frozen, Dessert) with BDT pricing
+- Custom-cakes CTA banner
+- Meet Our Bakers
+- Gallery
+- Customer testimonials carousel
+- Visit Us & Place an Order (outlet info + order form)
+- News & recipes (blog)
 - Newsletter signup
 - Multi-column footer
 
 ## Getting started
 
 ```bash
-npm install
-npm run dev      # http://localhost:3000
+npm install   # or: pnpm install
+npm run dev   # http://localhost:3000
 ```
 
 ## Build
@@ -42,8 +42,8 @@ app/            layout, global styles, page composition
 components/
   ui/           shared primitives (Container, Button, SectionHeading, Icon, Reveal)
   layout/       Navbar, Footer
-  sections/     Hero, About, Menu, Chefs, Gallery, etc.
+  sections/     Hero, About, Featured, Menu, Chefs (bakers), Gallery, etc.
 lib/            data.ts (all content) + utils
 ```
 
-Content lives in [`lib/data.ts`](lib/data.ts) — edit the menu, chefs, testimonials, hours, and contact details there.
+All content — products, categories, bakers, outlets, hours, testimonials — lives in [`lib/data.ts`](lib/data.ts).
