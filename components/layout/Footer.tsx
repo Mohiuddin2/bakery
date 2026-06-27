@@ -107,7 +107,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <Button href="#menu" size="md" className="mt-6 w-full">
+            <Button href="#cakes" size="md" className="mt-6 w-full">
               Order Now
             </Button>
           </div>

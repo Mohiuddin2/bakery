@@ -1,80 +1,128 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
-import { Reveal } from "@/components/ui/Reveal";
-import { img } from "@/lib/data";
+import { heroSlides } from "@/lib/data";
+
+const AUTOPLAY_MS = 5000;
 
 export function Hero() {
+  const [active, setActive] = useState(0);
+  const count = heroSlides.length;
+
+  const go = useCallback(
+    (dir: number) => setActive((i) => (i + dir + count) % count),
+    [count],
+  );
+
+  // Auto-advance. Re-runs whenever `active` changes, so the countdown also
+  // restarts after manual navigation (arrows / dots).
+  useEffect(() => {
+    const t = setTimeout(() => setActive((i) => (i + 1) % count), AUTOPLAY_MS);
+    return () => clearTimeout(t);
+  }, [active, count]);
+
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden"
+      className="relative min-h-screen overflow-hidden bg-ink"
+      aria-roledescription="carousel"
     >
-      <Image
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-        alt="Freshly baked croissants and pastries at K Bakery"
-        src={img("1509440159596-0249088772ff", 1920)}
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-brown-dark/75 to-brown-dark/30" />
+      {/* ---- Sliding track ---- */}
+      <div
+        className="hero-track absolute inset-0 flex transition-transform duration-[900ms] ease-[cubic-bezier(0.7,0,0.2,1)]"
+        style={{ transform: `translateX(-${active * 100}%)` }}
+      >
+        {heroSlides.map((slide, i) => {
+          const isActive = i === active;
+          return (
+            <div
+              key={slide.image}
+              className="relative h-full w-full shrink-0 basis-full overflow-hidden"
+              aria-hidden={!isActive}
+            >
+              <Image
+                fill
+                priority={i === 0}
+                sizes="100vw"
+                className={`object-cover ${isActive ? "animate-kenburns" : ""}`}
+                alt={`${slide.title} ${slide.highlight}`}
+                src={slide.image}
+              />
 
-      <Container className="relative z-10">
-        <div className="max-w-2xl pb-24 pt-32 text-cream md:pt-40">
-          <Reveal>
-            <p className="font-script text-4xl text-green-light">
-              Welcome to K Bakery
-            </p>
-          </Reveal>
+              {/* Texture + readability layers (per slide so they travel with it) */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/92 via-brown-dark/55 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/20" />
+              <div className="texture-grain pointer-events-none absolute inset-0 opacity-[0.18] mix-blend-overlay" />
+              <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_180px_60px_rgba(42,27,18,0.55)]" />
 
-          <Reveal delay={120}>
-            <h1 className="mt-2 text-5xl font-bold leading-[1.05] md:text-7xl">
-              Freshly Baked Happiness, Every Single Day
-            </h1>
-          </Reveal>
-
-          <Reveal delay={240}>
-            <p className="mt-6 max-w-xl text-lg text-cream/80">
-              We&apos;re the largest food chain in Chattogram, spreading smiles
-              one warm batch at a time. From cakes and pastries to cookies,
-              sweets and savoury snacks, everything is baked fresh every single
-              day with love.
-            </p>
-          </Reveal>
-
-          <Reveal delay={360}>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Button href="#menu" size="lg">
-                Explore Our Products
-              </Button>
-              <Button variant="outline" size="lg" href="#contact">
-                Order Now
-              </Button>
-            </div>
-          </Reveal>
-
-          <Reveal delay={480}>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
-              <div className="flex items-center gap-1 text-yellow">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Icon key={i} name="star" className="h-4 w-4" />
-                ))}
+              {/* Content */}
+              <div className="absolute inset-0 flex items-center">
+                <Container className="relative z-10">
+                  <div className="max-w-xl py-32 text-cream md:py-40">
+                    <p className="font-script text-4xl text-green-light sm:text-5xl">
+                      {slide.eyebrow}
+                    </p>
+                    <h1 className="mt-3 text-5xl font-bold leading-[1.02] sm:text-6xl md:text-7xl">
+                      {slide.title}{" "}
+                      <span className="text-yellow">{slide.highlight}</span>
+                    </h1>
+                    <p className="mt-5 max-w-md text-lg text-cream/85">
+                      {slide.text}
+                    </p>
+                    <div className="mt-8 flex flex-wrap items-center gap-4">
+                      <Button href="#popular" size="lg">
+                        Shop Now
+                      </Button>
+                      <Button variant="outline" size="lg" href="#cakes">
+                        Order a Cake
+                      </Button>
+                    </div>
+                  </div>
+                </Container>
               </div>
-              <span className="text-sm font-semibold text-cream/90">
-                Loved by 1M+ customers across Chattogram
-              </span>
             </div>
-          </Reveal>
-        </div>
-      </Container>
+          );
+        })}
+      </div>
 
-      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-cream/70">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em]">
-          Scroll
-        </span>
-        <Icon name="arrow-right" className="h-4 w-4 rotate-90 animate-bounce" />
+      {/* ---- Controls (fixed above the track) ---- */}
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 z-20 hidden -translate-y-1/2 justify-between px-4 sm:px-8 md:flex">
+        <button
+          type="button"
+          aria-label="Previous slide"
+          onClick={() => go(-1)}
+          className="pointer-events-auto grid h-12 w-12 place-items-center rounded-full bg-cream/15 text-cream backdrop-blur transition-all hover:bg-yellow hover:text-ink"
+        >
+          <Icon name="arrow-right" className="h-5 w-5 rotate-180" />
+        </button>
+        <button
+          type="button"
+          aria-label="Next slide"
+          onClick={() => go(1)}
+          className="pointer-events-auto grid h-12 w-12 place-items-center rounded-full bg-cream/15 text-cream backdrop-blur transition-all hover:bg-yellow hover:text-ink"
+        >
+          <Icon name="arrow-right" className="h-5 w-5" />
+        </button>
+      </div>
+
+      {/* Dots */}
+      <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3">
+        {heroSlides.map((slide, i) => (
+          <button
+            key={slide.image}
+            type="button"
+            aria-label={`Go to slide ${i + 1}`}
+            aria-current={i === active}
+            onClick={() => setActive(i)}
+            className={`h-2.5 rounded-full transition-all duration-300 ${
+              i === active ? "w-9 bg-yellow" : "w-2.5 bg-cream/50 hover:bg-cream/80"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );

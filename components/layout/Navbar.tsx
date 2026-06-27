@@ -90,7 +90,7 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Button href="#contact" className="hidden sm:inline-flex">
+            <Button href="#cakes" className="hidden sm:inline-flex">
               Order Now
             </Button>
             <button
@@ -124,7 +124,7 @@ export function Navbar() {
               </a>
             ))}
             <Button
-              href="#contact"
+              href="#cakes"
               onClick={() => setMobileOpen(false)}
               className="mt-3 w-full justify-center"
             >
