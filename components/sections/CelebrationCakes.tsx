@@ -9,12 +9,12 @@ export function CelebrationCakes() {
   return (
     <section
       id="cakes"
-      className="relative scroll-mt-24 overflow-hidden bg-brown-dark py-20 md:py-28"
+      className="relative scroll-mt-24 overflow-hidden bg-gradient-to-br from-[#3a6b2c] via-[#2c5222] to-[#1d3c17] py-20 md:py-28"
     >
-      {/* texture + warm glow */}
-      <div className="texture-dots pointer-events-none absolute inset-0 opacity-40" />
-      <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-yellow/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-green/10 blur-3xl" />
+      {/* texture + fresh glow */}
+      <div className="texture-dots pointer-events-none absolute inset-0 opacity-25" />
+      <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-green-light/20 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-yellow/12 blur-3xl" />
 
       <Container className="relative">
         <Reveal>

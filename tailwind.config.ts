@@ -33,7 +33,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["var(--font-display)", "Georgia", "serif"],
+        // Display = Google Sans (geometric sans). Key kept as `serif` so the
+        // many existing `font-serif` headings pick it up without churn.
+        serif: ["var(--font-display)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
         script: ["var(--font-script)", "cursive"],
       },

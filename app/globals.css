@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --font-display: "Fraunces", Georgia, serif;
+  --font-display: "Google Sans", system-ui, sans-serif;
   --font-body: "Nunito", system-ui, sans-serif;
   --font-script: "Caveat", cursive;
 }

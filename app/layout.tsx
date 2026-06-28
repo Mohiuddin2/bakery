@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
-import { Fraunces, Nunito, Caveat } from "next/font/google";
+import { Nunito, Caveat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
+// Display font — Google Sans (self-hosted variable woff2, weights 400–700).
+// Used for all big/bold headings via the `--font-display` CSS variable.
+const googleSans = localFont({
+  src: [
+    {
+      path: "./fonts/GoogleSans-latin.woff2",
+      weight: "400 700",
+      style: "normal",
+    },
+  ],
   variable: "--font-display",
   display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 const nunito = Nunito({
@@ -48,7 +58,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${nunito.variable} ${caveat.variable}`}
+      className={`${googleSans.variable} ${nunito.variable} ${caveat.variable}`}
     >
       <body>{children}</body>
     </html>
