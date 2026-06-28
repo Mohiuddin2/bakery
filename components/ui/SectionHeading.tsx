@@ -7,6 +7,9 @@ interface SectionHeadingProps {
   align?: "center" | "left";
   invert?: boolean;
   className?: string;
+  /** Overrides the eyebrow colour class (cn here is a plain join, so this
+   *  replaces — not appends to — the default colour). */
+  eyebrowClassName?: string;
 }
 
 export function SectionHeading({
@@ -16,6 +19,7 @@ export function SectionHeading({
   align = "center",
   invert = false,
   className,
+  eyebrowClassName,
 }: SectionHeadingProps) {
   return (
     <div
@@ -28,7 +32,7 @@ export function SectionHeading({
       <p
         className={cn(
           "font-script text-3xl sm:text-4xl",
-          invert ? "text-green-light" : "text-green",
+          eyebrowClassName ?? (invert ? "text-green-light" : "text-green"),
         )}
       >
         {eyebrow}

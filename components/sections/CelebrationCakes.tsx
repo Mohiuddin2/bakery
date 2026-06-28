@@ -9,17 +9,17 @@ export function CelebrationCakes() {
   return (
     <section
       id="cakes"
-      className="relative scroll-mt-24 overflow-hidden bg-gradient-to-br from-[#3a6b2c] via-[#2c5222] to-[#1d3c17] py-20 md:py-28"
+      className="relative scroll-mt-24 overflow-hidden bg-gradient-to-br from-[#e4f4d2] via-[#d2ecb6] to-[#bfe29a] py-20 md:py-28"
     >
-      {/* texture + fresh glow */}
-      <div className="texture-dots pointer-events-none absolute inset-0 opacity-25" />
-      <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-green-light/20 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-yellow/12 blur-3xl" />
+      {/* texture + soft glow */}
+      <div className="texture-dots pointer-events-none absolute inset-0 opacity-20" />
+      <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-green/15 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-yellow/20 blur-3xl" />
 
       <Container className="relative">
         <Reveal>
           <SectionHeading
-            invert
+            eyebrowClassName="text-green-dark"
             eyebrow="Made For Your Moments"
             title="Celebration Cakes"
             subtitle="Make every occasion extra special with our handcrafted celebration cakes. Beautifully designed and baked to perfection for life's sweetest moments."
