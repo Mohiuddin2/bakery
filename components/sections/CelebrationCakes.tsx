@@ -9,7 +9,7 @@ export function CelebrationCakes() {
   return (
     <section
       id="cakes"
-      className="relative scroll-mt-24 overflow-hidden bg-gradient-to-br from-[#e4f4d2] via-[#d2ecb6] to-[#bfe29a] py-20 md:py-28"
+      className="relative scroll-mt-24 overflow-hidden bg-[#7FB439] py-20 md:py-28"
     >
       {/* texture + soft glow */}
       <div className="texture-dots pointer-events-none absolute inset-0 opacity-20" />
