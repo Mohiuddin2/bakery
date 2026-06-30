@@ -177,44 +177,46 @@ export const celebrationCakes: Product[] = [
   },
 ];
 
-// 3 · SWEET DELIGHTS — traditional + modern sweets
+// 3 · SWEET DELIGHTS — traditional Bengali mishti, freshly made
 export const sweetDelights: Product[] = [
   {
-    name: "Assorted Mishti Box",
-    price: "৳ 450",
-    image: img("1576618148400-f54bed99fcfd", 700),
+    name: "Saffron Motichoor Laddu",
+    price: "৳ 420",
+    image: "/Sweets/motichoor-laddu.png",
+    tag: "Signature",
+    rating: 5,
+  },
+  {
+    name: "Cream Chom Chom",
+    price: "৳ 340",
+    image: "/Sweets/cream-chomchom.png",
+    tag: "Bestseller",
+    rating: 5,
+  },
+  {
+    name: "Kaju Barfi",
+    price: "৳ 480",
+    image: "/Sweets/kaju-barfi.png",
+    tag: "Premium",
+    rating: 5,
+  },
+  {
+    name: "Malai Cream Sandwich",
+    price: "৳ 360",
+    image: "/Sweets/malai-sandwich.png",
     tag: "Traditional",
     rating: 5,
   },
   {
-    name: "French Macarons",
-    price: "৳ 360",
-    image: img("1569864358642-9d1684040f43", 700),
+    name: "Rose Pantua",
+    price: "৳ 320",
+    image: "/Sweets/rose-pantua.png",
     rating: 5,
   },
   {
-    name: "Caramel Cream Bites",
-    price: "৳ 280",
-    image: img("1464349095431-e9a21285b5f3", 700),
-    rating: 4,
-  },
-  {
-    name: "Tiramisu Cup",
-    price: "৳ 160",
-    image: img("1567620905732-2d1ec7ab7445", 700),
-    tag: "Modern",
-    rating: 5,
-  },
-  {
-    name: "Fresh Fruit Tart",
-    price: "৳ 140",
-    image: img("1432139555190-58524dae6a55", 700),
-    rating: 5,
-  },
-  {
-    name: "Caramel Pudding",
-    price: "৳ 110",
-    image: img("1535141192574-5d4897c12636", 700),
+    name: "Rose Coconut Laddu",
+    price: "৳ 260",
+    image: "/Sweets/rose-laddu.png",
     rating: 4,
   },
 ];
@@ -230,7 +232,7 @@ export interface Category {
 
 export const categories: Category[] = [
   { name: "Cake & Pastry", image: img("1578985545062-69928b1d9587", 800), items: "40+ items" },
-  { name: "Sweet", image: img("1569864358642-9d1684040f43", 800), items: "30+ items" },
+  { name: "Sweet", image: "/Sweets/motichoor-laddu.png", items: "30+ items" },
   { name: "Biscuits", image: img("1499636136210-6f4ee915583e", 800), items: "25+ items" },
   { name: "Snacks", image: img("1555507036-ab1f4038808a", 800), items: "20+ items" },
   { name: "Bread", image: img("1598373182133-52452f7691ef", 800), items: "18+ items" },
@@ -292,7 +294,7 @@ export const offers: Offer[] = [
     title: "Sweet Hour, Every Evening",
     subtitle: "Buy 1kg sweets, get 250g free",
     badge: "FREE 250g",
-    image: img("1576618148400-f54bed99fcfd", 900),
+    image: "/Sweets/kaju-barfi.png",
     tone: "green",
   },
 ];
