@@ -7,7 +7,7 @@ import { sweetDelights } from "@/lib/data";
 
 export function SweetDelights() {
   return (
-    <section className="relative overflow-hidden bg-sand py-20 md:py-28">
+    <section id="sweets" className="relative overflow-hidden bg-sand py-20 md:py-28">
       <SectionOverlay src="/overlay/sweet-delights.jpeg" opacity={0.3} />
       <Container className="relative">
         <Reveal>

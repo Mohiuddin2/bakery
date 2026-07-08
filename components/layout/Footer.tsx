@@ -12,7 +12,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <a
-              href="#home"
+              href="/"
               aria-label="K Bakery home"
               className="inline-flex items-center transition-opacity hover:opacity-90"
             >

@@ -26,12 +26,12 @@ export const site = {
 };
 
 export const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Popular", href: "#popular" },
-  { label: "Cakes", href: "#cakes" },
-  { label: "Categories", href: "#categories" },
-  { label: "Offers", href: "#offers" },
-  { label: "Stories", href: "#stories" },
+  { label: "Home", href: "/#home" },
+  { label: "Popular", href: "/#popular" },
+  { label: "Cakes", href: "/#cakes" },
+  { label: "Categories", href: "/#categories" },
+  { label: "Offers", href: "/#offers" },
+  { label: "Stories", href: "/#stories" },
 ];
 
 /* ------------------------------------------------------------------ *

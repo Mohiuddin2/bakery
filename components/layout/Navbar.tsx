@@ -2,14 +2,21 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
 import { navLinks, site } from "@/lib/data";
 
 export function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // On inner pages (e.g. product details) the background is light — always
+  // use the solid dark header so cream text stays readable.
+  const solid = !isHome || scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -21,7 +28,7 @@ export function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-brown-dark/95 backdrop-blur shadow-lg" : "bg-transparent"
+        solid ? "bg-brown-dark/95 backdrop-blur shadow-lg" : "bg-transparent"
       }`}
     >
       <Container>
@@ -62,7 +69,7 @@ export function Navbar() {
 
         <div className="flex items-center justify-between py-4">
           <a
-            href="#home"
+            href="/"
             aria-label="K Bakery home"
             className="group flex items-center"
           >
@@ -90,7 +97,7 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Button href="#cakes" className="hidden sm:inline-flex">
+            <Button href="/#cakes" className="hidden sm:inline-flex">
               Order Now
             </Button>
             <button
@@ -124,7 +131,7 @@ export function Navbar() {
               </a>
             ))}
             <Button
-              href="#cakes"
+              href="/#cakes"
               onClick={() => setMobileOpen(false)}
               className="mt-3 w-full justify-center"
             >
