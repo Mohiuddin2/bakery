@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionOverlay } from "@/components/ui/SectionOverlay";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
@@ -9,20 +10,21 @@ export function CelebrationCakes() {
   return (
     <section
       id="cakes"
-      className="relative scroll-mt-24 overflow-hidden bg-[#7FB439] py-20 md:py-28"
+      className="relative scroll-mt-24 overflow-hidden bg-green py-20 md:py-28"
     >
-      {/* texture + soft glow */}
-      <div className="texture-dots pointer-events-none absolute inset-0 opacity-20" />
-      <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-green/15 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-yellow/20 blur-3xl" />
+      <SectionOverlay src="/overlay/celebration-cakes.jpeg" opacity={0.35} />
+      <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-green-dark/20 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-yellow/15 blur-3xl" />
 
       <Container className="relative">
         <Reveal>
           <SectionHeading
-            eyebrowClassName="text-green-dark"
             eyebrow="Made For Your Moments"
             title="Celebration Cakes"
             subtitle="Make every occasion extra special with our handcrafted celebration cakes. Beautifully designed and baked to perfection for life's sweetest moments."
+            eyebrowClassName="text-yellow"
+            titleClassName="text-cream"
+            subtitleClassName="text-cream/90"
           />
         </Reveal>
 

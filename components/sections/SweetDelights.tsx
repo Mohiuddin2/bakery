@@ -1,18 +1,23 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionOverlay } from "@/components/ui/SectionOverlay";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { Reveal } from "@/components/ui/Reveal";
 import { sweetDelights } from "@/lib/data";
 
 export function SweetDelights() {
   return (
-    <section className="texture-paper relative py-20 md:py-28">
+    <section className="relative overflow-hidden bg-sand py-20 md:py-28">
+      <SectionOverlay src="/overlay/sweet-delights.jpeg" opacity={0.3} />
       <Container className="relative">
         <Reveal>
           <SectionHeading
             eyebrow="Sweet On Tradition"
             title="Sweet Delights"
             subtitle="Indulge in our handcrafted collection of traditional and modern sweets. Made with premium ingredients to bring authentic flavors to every celebration."
+            eyebrowClassName="text-yellow"
+            titleClassName="text-brown-dark"
+            subtitleClassName="text-brown"
           />
         </Reveal>
 

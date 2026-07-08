@@ -34,10 +34,10 @@ export function CategoryTile({ category, className }: CategoryTileProps) {
 
       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
         <div>
-          <h3 className="font-serif text-xl font-semibold text-cream sm:text-2xl">
+          <h3 className="font-serif text-xl font-semibold text-yellow sm:text-2xl">
             {category.name}
           </h3>
-          <p className="text-xs font-medium text-cream/75">{category.items}</p>
+          <p className="text-xs font-medium text-cream/90">{category.items}</p>
         </div>
         <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-yellow text-ink transition-transform duration-300 group-hover:translate-x-1">
           <Icon name="arrow-right" className="h-5 w-5" />

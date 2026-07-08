@@ -16,10 +16,10 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <ShopByCategory />
         <PopularProducts />
         <CelebrationCakes />
         <SweetDelights />
-        <ShopByCategory />
         <NewArrivals />
         <WhyChooseUs />
         <BakingStories />

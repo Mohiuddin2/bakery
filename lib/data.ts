@@ -165,7 +165,7 @@ export const celebrationCakes: Product[] = [
   {
     name: "Red Velvet Celebration",
     price: "৳ 1,350",
-    image: img("1549903072-7e6e0bedb7fb", 800),
+    image: "/Cakes/red-velvet-celebration.png",
     rating: 5,
   },
   {

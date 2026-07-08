@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionOverlay } from "@/components/ui/SectionOverlay";
 import { CategoryTile } from "@/components/ui/CategoryTile";
 import { Reveal } from "@/components/ui/Reveal";
 import { categories } from "@/lib/data";
@@ -19,14 +20,18 @@ export function ShopByCategory() {
   return (
     <section
       id="categories"
-      className="texture-dots scroll-mt-24 bg-cream py-20 md:py-28"
+      className="relative scroll-mt-24 overflow-hidden bg-cream py-20 md:py-28"
     >
-      <Container>
+      <SectionOverlay src="/overlay/shop-by-category.jpeg" opacity={0.25} />
+      <Container className="relative">
         <Reveal>
           <SectionHeading
             eyebrow="Find Your Favorite"
             title="Shop by Category"
             subtitle="Explore our wide range of freshly baked goods, snacks, and desserts. Find your favorites with ease and discover something new in every category."
+            eyebrowClassName="text-yellow"
+            titleClassName="text-brown-dark"
+            subtitleClassName="text-brown"
           />
         </Reveal>
 

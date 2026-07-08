@@ -10,6 +10,8 @@ interface SectionHeadingProps {
   /** Overrides the eyebrow colour class (cn here is a plain join, so this
    *  replaces — not appends to — the default colour). */
   eyebrowClassName?: string;
+  titleClassName?: string;
+  subtitleClassName?: string;
 }
 
 export function SectionHeading({
@@ -20,6 +22,8 @@ export function SectionHeading({
   invert = false,
   className,
   eyebrowClassName,
+  titleClassName,
+  subtitleClassName,
 }: SectionHeadingProps) {
   return (
     <div
@@ -40,7 +44,7 @@ export function SectionHeading({
       <h2
         className={cn(
           "mt-1 text-3xl font-semibold leading-tight sm:text-4xl md:text-[2.75rem]",
-          invert ? "text-cream" : "text-ink",
+          titleClassName ?? (invert ? "text-cream" : "text-ink"),
         )}
       >
         {title}
@@ -59,7 +63,7 @@ export function SectionHeading({
         <p
           className={cn(
             "mt-5 text-base leading-relaxed",
-            invert ? "text-cream/70" : "text-muted",
+            subtitleClassName ?? (invert ? "text-cream/70" : "text-muted"),
           )}
         >
           {subtitle}
