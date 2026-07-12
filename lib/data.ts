@@ -32,6 +32,7 @@ export const navLinks = [
   { label: "Categories", href: "/#categories" },
   { label: "Offers", href: "/#offers" },
   { label: "Stories", href: "/#stories" },
+  { label: "Careers", href: "/careers" },
 ];
 
 /* ------------------------------------------------------------------ *

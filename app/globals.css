@@ -122,6 +122,22 @@
       animation: none !important;
     }
   }
+
+  /* Career application slip — perforated receipt top */
+  .career-slip {
+    background-image:
+      radial-gradient(circle at 100% 0%, rgba(246, 180, 44, 0.08), transparent 42%),
+      radial-gradient(circle at 0% 100%, rgba(127, 180, 57, 0.06), transparent 38%);
+  }
+
+  .career-slip__perforation {
+    height: 14px;
+    background-color: #f6e8ce;
+    background-image: radial-gradient(circle at 8px 7px, #fff9ef 5px, transparent 5.5px);
+    background-size: 16px 14px;
+    background-position: 0 0;
+    border-bottom: 1px dashed rgba(107, 66, 38, 0.18);
+  }
 }
 
 /* ----------------------------------------------------------------- *
