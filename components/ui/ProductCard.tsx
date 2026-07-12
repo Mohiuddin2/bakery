@@ -58,10 +58,31 @@ export function ProductCard({
           />
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/25 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-          {product.tag && (
+          {product.discountLabel && (
+            <span className="discount-ribbon absolute left-0 top-5 z-10">
+              <span className="discount-ribbon__body">
+                <span className="discount-ribbon__shimmer" aria-hidden />
+                <span className="discount-ribbon__wave" aria-hidden />
+                <span className="relative z-[1]">{product.discountLabel}</span>
+              </span>
+            </span>
+          )}
+
+          {product.tag && !product.discountLabel && (
             <span
               className={cn(
                 "absolute left-4 top-4 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wide shadow-sm",
+                tagTone[product.tag] ?? "bg-yellow text-ink",
+              )}
+            >
+              {product.tag}
+            </span>
+          )}
+
+          {product.tag && product.discountLabel && (
+            <span
+              className={cn(
+                "absolute right-14 top-4 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide shadow-sm",
                 tagTone[product.tag] ?? "bg-yellow text-ink",
               )}
             >
@@ -95,9 +116,21 @@ export function ProductCard({
           </h3>
 
           <div className="mt-auto flex items-center justify-between pt-3">
-            <span className="font-serif text-xl font-bold text-brown">
-              {product.price}
-            </span>
+            <div className="flex flex-col gap-0.5">
+              {product.originalPrice && (
+                <span className="text-xs font-medium text-muted line-through decoration-brown/40">
+                  {product.originalPrice}
+                </span>
+              )}
+              <span
+                className={cn(
+                  "font-serif text-xl font-bold",
+                  product.originalPrice ? "text-green-dark" : "text-brown",
+                )}
+              >
+                {product.price}
+              </span>
+            </div>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-ink px-3.5 py-2 text-xs font-bold text-cream transition-all duration-300 group-hover:bg-yellow group-hover:text-ink">
               <Icon name="cart" className="h-4 w-4" />
               View

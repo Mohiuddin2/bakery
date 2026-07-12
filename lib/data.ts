@@ -75,6 +75,10 @@ export interface Product {
   image: string;
   tag?: string;
   rating?: number;
+  /** Strikethrough price shown when item is on sale */
+  originalPrice?: string;
+  /** e.g. "15% OFF" — renders a sale ribbon on the card */
+  discountLabel?: string;
 }
 
 // 1 · POPULAR PRODUCTS — the everyday bestsellers
@@ -246,28 +250,34 @@ export const categories: Category[] = [
 export const newArrivals: Product[] = [
   {
     name: "Pistachio Cream Cake",
-    price: "৳ 1,150",
+    price: "৳ 920",
+    originalPrice: "৳ 1,150",
+    discountLabel: "20% OFF",
     image: img("1535254973040-607b474cb50d", 700),
     tag: "New",
     rating: 5,
   },
   {
     name: "Cinnamon Bread Twist",
-    price: "৳ 130",
+    price: "৳ 104",
+    originalPrice: "৳ 130",
+    discountLabel: "20% OFF",
     image: img("1608198093002-ad4e005484ec", 700),
-    tag: "New",
     rating: 5,
   },
   {
     name: "Artisan Cheese Wheel",
-    price: "৳ 520",
+    price: "৳ 416",
+    originalPrice: "৳ 520",
+    discountLabel: "20% OFF",
     image: img("1563636619-e9143da7973b", 700),
-    tag: "New",
     rating: 4,
   },
   {
     name: "Strawberry Glazed Donut",
-    price: "৳ 75",
+    price: "৳ 60",
+    originalPrice: "৳ 75",
+    discountLabel: "20% OFF",
     image: img("1551024506-0bccd828d307", 700),
     tag: "New",
     rating: 5,
@@ -278,6 +288,8 @@ export interface Offer {
   title: string;
   subtitle: string;
   badge: string;
+  /** Large decorative figure shown behind the copy */
+  accent: string;
   image: string;
   tone: "yellow" | "brown" | "green";
 }
@@ -285,15 +297,17 @@ export interface Offer {
 export const offers: Offer[] = [
   {
     title: "Weekend Cake Festival",
-    subtitle: "Flat 20% off on all celebration cakes",
-    badge: "20% OFF",
+    subtitle: "Flat 20% off on all celebration cakes — this Saturday & Sunday only",
+    badge: "20%",
+    accent: "20",
     image: img("1562440499-64c9a111f713", 900),
     tone: "brown",
   },
   {
     title: "Sweet Hour, Every Evening",
-    subtitle: "Buy 1kg sweets, get 250g free",
-    badge: "FREE 250g",
+    subtitle: "Buy 1kg sweets, get 250g free from 5 PM to 8 PM daily",
+    badge: "FREE",
+    accent: "250g",
     image: "/Sweets/kaju-barfi.png",
     tone: "green",
   },
