@@ -39,36 +39,23 @@ export const navLinks = [
 ];
 
 /* ------------------------------------------------------------------ *
- * HERO CAROUSEL — the two flat-lay banners (Cake 1 & Cake 2)
+ * HERO — cinematic video backdrop + static copy
  * ------------------------------------------------------------------ */
-export interface HeroSlide {
-  image: string;
-  /** "light" banner → dark text scrim · "dark" banner → lighter scrim */
-  tone: "light" | "dark";
+export const HERO_VIDEO_SRC = "/hero/hero%20Section%20Video.webm";
+
+export interface HeroContent {
   eyebrow: string;
   title: string;
   highlight: string;
   text: string;
 }
 
-export const heroSlides: HeroSlide[] = [
-  {
-    image: "/hero/cake-1.jpg",
-    tone: "light",
-    eyebrow: "Freshly Baked, Every Day",
-    title: "Cakes Worth",
-    highlight: "Celebrating",
-    text: "Handcrafted gateaux, fresh-cream pastries and rich tarts — baked from scratch each morning.",
-  },
-  {
-    image: "/hero/cake-2.jpg",
-    tone: "dark",
-    eyebrow: "The Taste of Chattogram",
-    title: "A Bakery Full of",
-    highlight: "Goodness",
-    text: "From flaky croissants to golden sweets, discover treats made to make every moment sweeter.",
-  },
-];
+export const heroContent: HeroContent = {
+  eyebrow: "Freshly Baked, Every Day",
+  title: "Cakes Worth",
+  highlight: "Celebrating",
+  text: "Handcrafted gateaux, fresh-cream pastries and rich tarts — baked from scratch each morning.",
+};
 
 /* ------------------------------------------------------------------ *
  * PRODUCT MODEL — image-forward, minimal text
