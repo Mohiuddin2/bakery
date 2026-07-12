@@ -11,8 +11,10 @@ export const site = {
   name: "K Bakery",
   tagline: "Freshly Baked, Every Day",
   phone: "031-614246",
+  phoneExt: "636193",
   email: "info@kbakery.com.bd",
-  address: "4 Zakir Hossain Road, South Khulshi, Chattogram 4000",
+  supportEmail: "support@kbakery.com.bd",
+  address: "4 Zakir Hossain Road, South Khulshi, 4000 Chittagong",
   hours: [
     { day: "Saturday – Thursday", time: "8:00 AM – 10:00 PM" },
     { day: "Friday", time: "9:00 AM – 10:00 PM" },
@@ -33,6 +35,7 @@ export const navLinks = [
   { label: "Offers", href: "/#offers" },
   { label: "Stories", href: "/#stories" },
   { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
 ];
 
 /* ------------------------------------------------------------------ *

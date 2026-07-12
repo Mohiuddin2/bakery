@@ -31,6 +31,9 @@ export type IconName =
   | "upload"
   | "file"
   | "user"
+  | "layout"
+  | "package"
+  | "users"
   | "instagram"
   | "facebook"
   | "x"
@@ -203,6 +206,29 @@ const stroke: Partial<Record<IconName, React.ReactNode>> = {
     <>
       <circle cx="12" cy="8" r="4" />
       <path d="M4 21a8 8 0 0 1 16 0" />
+    </>
+  ),
+  layout: (
+    <>
+      <rect x="3" y="3" width="8" height="8" rx="1.5" />
+      <rect x="13" y="3" width="8" height="5" rx="1.5" />
+      <rect x="13" y="10" width="8" height="11" rx="1.5" />
+      <rect x="3" y="13" width="8" height="8" rx="1.5" />
+    </>
+  ),
+  package: (
+    <>
+      <path d="M12 2 3 7l9 5 9-5-9-5Z" />
+      <path d="M3 7v10l9 5 9-5V7" />
+      <path d="M12 12v10" />
+    </>
+  ),
+  users: (
+    <>
+      <circle cx="9" cy="7" r="3.5" />
+      <path d="M2 21a7 7 0 0 1 14 0" />
+      <circle cx="17" cy="8" r="2.5" />
+      <path d="M15 21a5.5 5.5 0 0 1 7 0" />
     </>
   ),
   instagram: (
