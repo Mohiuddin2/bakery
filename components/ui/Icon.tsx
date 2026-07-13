@@ -37,7 +37,9 @@ export type IconName =
   | "instagram"
   | "facebook"
   | "x"
-  | "youtube";
+  | "youtube"
+  | "chat"
+  | "send";
 
 // Stroke-based glyphs (drawn with currentColor outline).
 const stroke: Partial<Record<IconName, React.ReactNode>> = {
@@ -236,6 +238,20 @@ const stroke: Partial<Record<IconName, React.ReactNode>> = {
       <rect x="2" y="2" width="20" height="20" rx="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" />
       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </>
+  ),
+  chat: (
+    <>
+      <path d="M21 12a8.5 8.5 0 0 1-8.5 8.5H7l-4 3V12A8.5 8.5 0 1 1 21 12Z" />
+      <path d="M8 11h.01" />
+      <path d="M12 11h.01" />
+      <path d="M16 11h.01" />
+    </>
+  ),
+  send: (
+    <>
+      <path d="m5 12 14-7-7 14-2-5-5-2Z" />
+      <path d="M10 14 21 5" />
     </>
   ),
 };

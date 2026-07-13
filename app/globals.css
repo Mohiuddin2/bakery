@@ -186,6 +186,49 @@
   }
 }
 
+/* Admin chat — rising-dough pulse + typing dots */
+@keyframes admin-chat-fab-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(246, 180, 44, 0.55),
+      0 18px 40px -18px rgba(246, 180, 44, 0.55);
+  }
+  55% {
+    box-shadow:
+      0 0 0 14px rgba(246, 180, 44, 0),
+      0 18px 40px -18px rgba(246, 180, 44, 0.55);
+  }
+}
+
+@keyframes admin-chat-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.admin-chat-fab {
+  animation: admin-chat-fab-pulse 2.4s ease-out infinite;
+}
+
+.admin-chat-dot {
+  animation: admin-chat-dot 1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-chat-fab,
+  .admin-chat-dot {
+    animation: none !important;
+  }
+}
+
 /* ----------------------------------------------------------------- *
  * Textures — warm paper grain + soft dot field for richer surfaces
  * ----------------------------------------------------------------- */

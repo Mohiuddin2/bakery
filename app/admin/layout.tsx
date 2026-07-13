@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
+import { AdminChatWidget } from "@/components/admin/AdminChatWidget";
 
 export const metadata: Metadata = {
   title: "Admin — K Bakery",
@@ -15,6 +16,7 @@ export default function AdminLayout({
     <div className="admin-shell min-h-screen bg-sand">
       <AdminSidebar />
       <div className="lg:pl-64">{children}</div>
+      <AdminChatWidget />
     </div>
   );
 }
