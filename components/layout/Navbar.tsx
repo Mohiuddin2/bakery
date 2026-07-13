@@ -13,18 +13,20 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Keep hero / pages clear of the fixed header
+  // Keep hero clear of the fixed header (freeze height while green bar is collapsed
+  // so the page doesn't jump when the strip hides on scroll).
   useEffect(() => {
     const header = headerRef.current;
     if (!header) return;
 
     const syncHeight = () => {
+      if (window.scrollY > 24) return;
       document.documentElement.style.setProperty(
         "--site-header-h",
         `${header.offsetHeight}px`,
@@ -39,7 +41,7 @@ export function Navbar() {
       ro.disconnect();
       window.removeEventListener("resize", syncHeight);
     };
-  }, [mobileOpen]);
+  }, [mobileOpen, scrolled]);
 
   return (
     <header
@@ -48,8 +50,13 @@ export function Navbar() {
         scrolled || mobileOpen ? "shadow-md" : "shadow-sm"
       }`}
     >
-      {/* Top utility bar — brand green strip */}
-      <div className="hidden bg-green text-cream md:block">
+      {/* Top utility bar — hides on scroll */}
+      <div
+        className={`hidden overflow-hidden bg-green text-cream transition-[max-height,opacity] duration-300 ease-out md:block ${
+          scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
+        }`}
+        aria-hidden={scrolled}
+      >
         <Container>
           <div className="flex items-center justify-between py-2 text-xs">
             <div className="flex items-center gap-6">
