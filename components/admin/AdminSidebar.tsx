@@ -17,8 +17,8 @@ export function AdminSidebar() {
           <Image
             src="/logo.png"
             alt=""
-            width={150}
-            height={50}
+            width={180}
+            height={60}
             priority
             className="h-9 w-auto"
           />

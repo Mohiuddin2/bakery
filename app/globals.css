@@ -6,6 +6,15 @@
   --font-display: "Google Sans", system-ui, sans-serif;
   --font-body: "Nunito", system-ui, sans-serif;
   --font-script: "Caveat", cursive;
+  /* Measured live by Navbar; fallback ≈ logo row on mobile */
+  --site-header-h: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    /* Green utility strip + white nav row */
+    --site-header-h: 6.75rem;
+  }
 }
 
 @layer base {

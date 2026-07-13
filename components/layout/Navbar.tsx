@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
 import { navLinks, site } from "@/lib/data";
 
 export function Navbar() {
+  const headerRef = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -18,8 +19,31 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Keep hero / pages clear of the fixed header
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const syncHeight = () => {
+      document.documentElement.style.setProperty(
+        "--site-header-h",
+        `${header.offsetHeight}px`,
+      );
+    };
+
+    syncHeight();
+    const ro = new ResizeObserver(syncHeight);
+    ro.observe(header);
+    window.addEventListener("resize", syncHeight);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", syncHeight);
+    };
+  }, [mobileOpen]);
+
   return (
     <header
+      ref={headerRef}
       className={`fixed inset-x-0 top-0 z-50 transition-shadow duration-300 ${
         scrolled || mobileOpen ? "shadow-md" : "shadow-sm"
       }`}
@@ -74,10 +98,10 @@ export function Navbar() {
               <Image
                 src="/logo.png"
                 alt="K Bakery"
-                width={150}
-                height={50}
+                width={180}
+                height={60}
                 priority
-                className="h-9 w-auto transition-transform duration-300 group-hover:scale-105 sm:h-10"
+                className="h-10 w-auto transition-transform duration-300 group-hover:scale-105 sm:h-11"
               />
             </a>
 

@@ -120,9 +120,9 @@ export function ContactMap({ className }: ContactMapProps) {
               <Image
                 src="/logo.png"
                 alt=""
-                width={36}
-                height={36}
-                className="h-full w-full object-contain p-1"
+                width={180}
+                height={60}
+                className="h-full w-full object-contain p-0.5"
               />
             </div>
             <div className="min-w-0">

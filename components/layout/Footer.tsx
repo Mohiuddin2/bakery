@@ -19,9 +19,9 @@ export function Footer() {
               <Image
                 src="/logo.png"
                 alt="K Bakery"
-                width={150}
-                height={50}
-                className="h-10 w-auto"
+                width={180}
+                height={60}
+                className="h-11 w-auto"
               />
             </a>
             <p className="mt-4 text-sm leading-relaxed text-cream/70">

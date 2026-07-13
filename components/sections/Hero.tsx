@@ -29,7 +29,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-ink"
+      className="relative mt-[var(--site-header-h,5.5rem)] min-h-[calc(100svh-var(--site-header-h,5.5rem))] overflow-hidden bg-ink"
     >
       <div className="absolute inset-0" aria-hidden>
         <video
