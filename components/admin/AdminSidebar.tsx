@@ -15,10 +15,10 @@ export function AdminSidebar() {
       <div className="px-5 py-5 lg:px-6">
         <Link href="/admin" aria-label="Admin home" className="inline-block">
           <Image
-            src="/logo.png"
+            src="/logo-admin.png"
             alt=""
-            width={180}
-            height={60}
+            width={150}
+            height={50}
             priority
             className="h-9 w-auto"
           />
